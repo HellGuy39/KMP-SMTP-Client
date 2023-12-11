@@ -19,6 +19,13 @@ fun CreateEmailScreen(
     var subject by remember { mutableStateOf("") }
     var body by remember { mutableStateOf("") }
 
+    fun clearFields() {
+        from = ""
+        to = ""
+        subject = ""
+        body = ""
+    }
+
     fun validate(): Boolean {
         if (from.isEmpty()) {
             onShowError("'From' field should not be empty")
@@ -104,6 +111,7 @@ fun CreateEmailScreen(
                         body = body,
                     )
 
+                    clearFields()
                     onSendMainClick(mail)
                 }
             ) {

@@ -29,7 +29,10 @@ fun CreateEmailRoute() {
             modifier = Modifier.fillMaxSize()
                 .padding(16.dp)
                 .padding(innerPadding),
-            onSendMainClick = { mail -> MailClient.sendEmail(mail, onError = { message -> showSnackbar(message) }) },
+            onSendMainClick = { mail ->
+                MailClient.sendEmail(mail, onError = { message -> showSnackbar(message) })
+                showSnackbar("Your message has been sent")
+            },
             onShowError = { message -> showSnackbar(message) }
         )
     }
