@@ -1,3 +1,6 @@
+package screen.createmail
+
+import model.Mail
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
@@ -10,6 +13,7 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun CreateEmailScreen(
     modifier: Modifier,
+    onBackClick: () -> Unit,
     onSendMainClick: (mail: Mail) -> Unit,
     onShowError: (message: String) -> Unit
 ) {
@@ -50,6 +54,13 @@ fun CreateEmailScreen(
         modifier = modifier,
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
+        Button(
+            onClick = { onBackClick() }
+        ) {
+            Text(
+                text = "Back"
+            )
+        }
         Text(
             text = "Email Message",
             style = MaterialTheme.typography.h5
@@ -115,7 +126,7 @@ fun CreateEmailScreen(
                     onSendMainClick(mail)
                 }
             ) {
-                Text("Send Mail")
+                Text("Send model.Mail")
             }
         }
     }

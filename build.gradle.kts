@@ -12,6 +12,10 @@ repositories {
     google()
     mavenCentral()
     maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+    maven {
+        url = uri("http://repository.aspose.com/repo/")
+        isAllowInsecureProtocol = true
+    }
 }
 
 kotlin {
@@ -23,10 +27,9 @@ kotlin {
         val jvmMain by getting {
             dependencies {
                 implementation(compose.desktop.macos_arm64)
-                implementation("net.axay:simplekotlinmail-core:1.4.0")
-                implementation("net.axay:simplekotlinmail-client:1.4.0")
                 implementation("org.slf4j:slf4j-api:1.7.5")
                 implementation("org.slf4j:slf4j-log4j12:1.7.5")
+                implementation("com.aspose:aspose-email:22.4:jdk16")
             }
         }
         val jvmTest by getting
